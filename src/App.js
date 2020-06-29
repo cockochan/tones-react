@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import useInterval from 'react-useinterval';
 import Key from './Key.js';
 import './App.css';
 import Select from './Select.js'
@@ -15,6 +16,8 @@ function App() {
   const majorA=['A', 'B', 'C#', 'D', 'E', 'F#', 'G#']
   const [scale, setScale]=useState(majorA)
   const [octave, setOctave]=useState(4)
+  const [start, setStart]=useState(false)
+  const [activeNote, setActiveNote]=useState(0)
 
   const playNote =(event)=>{
     
@@ -28,8 +31,26 @@ const  selOct=(event)=>{
   const selectScale =(event)=>{
   
     setScale(eval(event.target.value))
-
+    
   }
+
+  const handlePlay=()=>{
+    setStart(true)
+    if(activeNote<scale.length-1)
+    setActiveNote(activeNote+1)
+    else(setActiveNote(0))
+    synth.triggerAttackRelease(`${scale[activeNote]}${octave}`, '8n')
+  }
+ 
+
+  useInterval(
+    () => {
+      handlePlay()
+    },
+    start ? 500 : null
+  );
+
+
   return (
     <div className="App">
       <div> {scale}</div>
@@ -39,6 +60,7 @@ const  selOct=(event)=>{
       
     <Select selOct={selOct} />
     <SelectScale  selectScale={selectScale}/>
+    <button onClick={handlePlay}>play</button>
     </div>
   );
 }
