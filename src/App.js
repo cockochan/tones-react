@@ -11,7 +11,7 @@ synth.oscillator.type = "sine";
 synth.toMaster();
 
 function App() {
-  // const pentatonicE=['E', 'F#', 'G#', 'B', 'C#']
+  const pentatonicE=['E', 'F#', 'G#', 'B', 'C#']
   const majorA=['A', 'B', 'C#', 'D', 'E', 'F#', 'G#']
   const [scale, setScale]=useState(majorA)
   const [octave, setOctave]=useState(4)
@@ -26,8 +26,8 @@ const  selOct=(event)=>{
    
   }
   const selectScale =(event)=>{
-    
-    setScale((event.target.value))
+  
+    setScale(eval(event.target.value))
 
   }
   return (
