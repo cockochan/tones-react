@@ -10,10 +10,14 @@ const synth = new Tone.Synth();
 synth.oscillator.type = "sine";
 // connect it to the master output (your speakers)
 synth.toMaster();
-// thisline
+
 function Player(props) {
   const pentatonicE=['E', 'F#', 'G#', 'B', 'C#']
   const majorA=['A', 'B', 'C#', 'D', 'E', 'F#', 'G#']
+  const scales={
+    majorA:['A', 'B', 'C#', 'D', 'E', 'F#', 'G#'],
+    pentatonicE:['E', 'F#', 'G#', 'B', 'C#']
+  }
   const [scale, setScale]=useState(pentatonicE)
   const [octave, setOctave]=useState(4)
   const [start, setStart]=useState(false)
@@ -31,7 +35,7 @@ const  selOct=(event)=>{
    
   }
   const selectScale =(event)=>{
-  
+  console.log(event.target.value, scales[event.target.value])
     setScale(eval(event.target.value))
     
   }
