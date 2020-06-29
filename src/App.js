@@ -14,7 +14,7 @@ synth.toMaster();
 function App() {
   const pentatonicE=['E', 'F#', 'G#', 'B', 'C#']
   const majorA=['A', 'B', 'C#', 'D', 'E', 'F#', 'G#']
-  const [scale, setScale]=useState(majorA)
+  const [scale, setScale]=useState(pentatonicE)
   const [octave, setOctave]=useState(4)
   const [start, setStart]=useState(false)
   const [activeNote, setActiveNote]=useState(0)
@@ -34,6 +34,10 @@ const  selOct=(event)=>{
     
   }
 
+  const removeButton =(event)=>{
+    console.log(event.target.value)
+    setScale(scale.filter(e => e !==event.target.value))}
+  
   const handlePlay=()=>{
     setStart(true)
     if(activeNote<scale.length-1)
@@ -57,7 +61,7 @@ const stop=()=>{
     <div className="App">
       <div> {scale}</div>
       {scale.map(note=>{
-        return <Key key={note} note={note}onClick={playNote}/>
+        return <Key key={note} note={note}onClick={playNote} removeButton={removeButton}/>
       })}
       
     <Select selOct={selOct} />
