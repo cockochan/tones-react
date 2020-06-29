@@ -34,7 +34,7 @@ const  selOct=(event)=>{
     <div className="App">
       <div> {scale}</div>
       {scale.map(note=>{
-        return <Key note={note}onClick={playNote}/>
+        return <Key key={note} note={note}onClick={playNote}/>
       })}
       
     <Select selOct={selOct} />
