@@ -49,7 +49,9 @@ const  selOct=(event)=>{
     },
     start ? 500 : null
   );
-
+const stop=()=>{
+  setStart(false)
+}
 
   return (
     <div className="App">
@@ -61,6 +63,7 @@ const  selOct=(event)=>{
     <Select selOct={selOct} />
     <SelectScale  selectScale={selectScale}/>
     <button onClick={handlePlay}>play</button>
+    <button onClick={stop}>stop</button>
     </div>
   );
 }
