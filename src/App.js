@@ -60,9 +60,11 @@ const stop=()=>{
   return (
     <div className="App">
       <div> {scale}</div>
+      <div className='keyboard' style={{display:'flex', flexDirection:'row', justifyContent:'center'}}>
       {scale.map(note=>{
         return <Key key={note} note={note}onClick={playNote} removeButton={removeButton}/>
       })}
+      </div>
       
     <Select selOct={selOct} />
     <SelectScale  selectScale={selectScale}/>

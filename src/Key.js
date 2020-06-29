@@ -2,13 +2,13 @@ import React from "react";
 
 const Key = (props) => {
   return (
-      <blackkey>
+      <div className='blackkey' style={{display:'flex',flexDirection:'column',width:'50px'}}>
     <button
     value={props.note}
     onClick={props.removeButton}
-    style={{ backgroundColor: "red" }}
+    style={{ backgroundColor: "grey", color:'white' }}
   >
-  {props.note}
+ close
   </button>
     <button
       value={props.note}
@@ -22,7 +22,7 @@ const Key = (props) => {
     >
       
       {props.note}
-    </button></blackkey>
+    </button></div>
   );
 };
 export default Key;
