@@ -10,7 +10,7 @@ const synth = new Tone.Synth();
 synth.oscillator.type = "sine";
 // connect it to the master output (your speakers)
 synth.toMaster();
-
+// thisline
 function App() {
   const pentatonicE=['E', 'F#', 'G#', 'B', 'C#']
   const majorA=['A', 'B', 'C#', 'D', 'E', 'F#', 'G#']
