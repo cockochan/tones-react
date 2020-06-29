@@ -20,6 +20,7 @@ function Player(props) {
   const [activeNote, setActiveNote]=useState(0)
   const [speed, setSpeed]=useState(500)
   const [red,setRed]=useState(false)
+  
   const playNote =(event)=>{
     
     synth.triggerAttackRelease(`${event.target.value}${octave}`, '8n')
@@ -61,7 +62,7 @@ const stop=()=>{
 }
 
   return (
-    <div className="App">
+    <div className="App" >
       <div> {scale}</div>
       <div className='keyboard' style={{display:'flex', flexDirection:'row', justifyContent:'center'}}>
       {scale.map(note=>{
