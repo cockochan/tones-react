@@ -4,8 +4,8 @@ import Player from './Player.js'
 
 function App(){
 
-    return (<div style ={ { backgroundImage: "url('https://muzikercdn.com/uploads/products/654/65448/thumb_d_gallery_base_04d5bba1.jpg')",  backgroundRepeat: 'no-repeat',
-    backgroundSize: '100% 100%'}}>
+    return (<div style ={ { backgroundImage: "url('https://images3.alphacoders.com/157/thumb-1920-157265.jpg')", width:'100%', height:'100vh',  backgroundRepeat: 'no-repeat',
+    backgroundSize: '100% auto'}}>
     <Player />
     <Player/>
     <Player/>

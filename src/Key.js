@@ -6,7 +6,7 @@ const Key = (props) => {
     <button
     value={props.note}
     onClick={props.removeButton}
-    style={{ backgroundColor: "grey", color:'white' }}
+    style={{ backgroundColor: "#002727", color:'white' }}
   >
  close
   </button>
@@ -15,7 +15,7 @@ const Key = (props) => {
       style={{
         height: "100px",
         width: "50px",
-        backgroundColor: "black",
+        backgroundColor: "#15babc",
         color: "white",
       }}
       onClick={props.onClick}
