@@ -19,6 +19,7 @@ function Player(props) {
   const [start, setStart]=useState(false)
   const [activeNote, setActiveNote]=useState(0)
   const [speed, setSpeed]=useState(500)
+  const [red,setRed]=useState(false)
   const playNote =(event)=>{
     
     synth.triggerAttackRelease(`${event.target.value}${octave}`, '8n')
@@ -40,8 +41,10 @@ const  selOct=(event)=>{
   
   const handlePlay=()=>{
     setStart(true)
+    setRed(!red)
     if(activeNote<scale.length-1)
     setActiveNote(activeNote+1)
+ 
     else(setActiveNote(0))
     synth.triggerAttackRelease(`${scale[activeNote]}${octave}`, '8n')
   }
@@ -64,8 +67,10 @@ const stop=()=>{
       {scale.map(note=>{
         return <Key key={note} note={note}onClick={playNote} removeButton={removeButton}/>
       })}
+      <div style={ red===false ? { backgroundColor:'black', width:'10px',height:'10px', borderRadius:'50%'}:{ shadow: "2px 2px red",backgroundColor:'red', width:'10px',height:'10px', borderRadius:'50%'}}></div>
       </div>
       
+  
     <Select selOct={selOct} />
     <SelectScale  selectScale={selectScale}/>
     <button onClick={handlePlay}>play</button>
