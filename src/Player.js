@@ -11,14 +11,14 @@ synth.oscillator.type = "sine";
 // connect it to the master output (your speakers)
 synth.toMaster();
 // thisline
-function Player() {
+function Player(props) {
   const pentatonicE=['E', 'F#', 'G#', 'B', 'C#']
   const majorA=['A', 'B', 'C#', 'D', 'E', 'F#', 'G#']
   const [scale, setScale]=useState(pentatonicE)
   const [octave, setOctave]=useState(4)
   const [start, setStart]=useState(false)
   const [activeNote, setActiveNote]=useState(0)
-
+  const [speed, setSpeed]=useState(500)
   const playNote =(event)=>{
     
     synth.triggerAttackRelease(`${event.target.value}${octave}`, '8n')
@@ -51,7 +51,7 @@ const  selOct=(event)=>{
     () => {
       handlePlay()
     },
-    start ? 500 : null
+    start ? speed : null
   );
 const stop=()=>{
   setStart(false)
